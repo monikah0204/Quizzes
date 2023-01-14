@@ -47,6 +47,7 @@ public class Quiz {
         Thread.sleep(1000);
         System.out.println("Thank you");
 
+
         Thread.sleep(1500);
         System.out.println("Bye");
     }

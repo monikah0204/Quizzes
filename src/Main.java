@@ -7,10 +7,11 @@ public class Main {
         Quiz biologyQuiz = new Quiz(scanner,new BiologyQuizBody().getQuiz());
 
         try {
+            System.out.println("Welcome");
             System.out.println("1.Biology Quiz \n2.Geography Quiz");
             System.out.print("Choose quiz: ");
             int userQuiz = scanner.nextInt();
-            System.out.println("");
+            System.out.println();
             if (userQuiz == 1) {
                 biologyQuiz.runQuiz();
             } else {

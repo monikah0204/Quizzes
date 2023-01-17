@@ -74,12 +74,12 @@ public class BiologyQuizBody {
                         14,
                         "Which of the following is found in plant cells, but not animal cells?",
                         List.of("Cell wall", "Vacuole", "Mitochondria", "Endoplasmic reticulum"),
-                        1),
-                new QuizPart(
-                        15,
-                        "A cell with a diploid number of 24 undergoes meiosis, how many chromosomes are in each daughter cell?",
-                        List.of("6", "12", "24", "48"),
-                        2));
+                        1));
+//                new QuizPart(
+//                        15,
+//                        "A cell with a diploid number of 24 undergoes meiosis, how many chromosomes are in each daughter cell?",
+//                        List.of("6", "12", "24", "48"),
+//                        2));
     }
 
     public List<QuizPart> getQuiz() {

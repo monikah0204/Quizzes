@@ -28,24 +28,28 @@ public class Quiz {
         AtomicInteger score = new AtomicInteger();
 
         shuffle(quizParts);
-        quizParts.forEach(quizPart -> {
-            System.out.println(quizPart.getQuestion());
+        int questionsNumber = Math.min(quizParts.size(), 15);
+        for (int i = 0; i < questionsNumber; i++) {
+            System.out.println(quizParts.get(i).getQuestion());
 
-            for (int i = 0; i < quizPart.getAnswers().size(); i++) {
-                System.out.println((i + 1) + ". " + quizPart.getAnswers().get(i));
+            for (int j = 0; j < quizParts.get(i).getAnswers().size(); j++) {
+                System.out.println((j + 1) + ". " + quizParts.get(i).getAnswers().get(j));
             }
 
-            System.out.print("Choose answer: ");
-            int userAnswer = scanner.nextInt();
+            int userAnswer;
+            do {
+                System.out.print("Choose answer: ");
+                userAnswer = scanner.nextInt();
+            } while (Main.isNotNumberFromRange(userAnswer, 1 , quizParts.get(i).getAnswers().size()));
 
-            if (userAnswer == quizPart.getCorrectAnswer()) {
+            if (userAnswer == quizParts.get(i).getCorrectAnswer()) {
                 System.out.println("Correct");
                 score.getAndIncrement();
             } else {
                 System.out.println("Incorrect");
             }
             System.out.println("\n");
-        });
+        }
 
         Thread.sleep(1000);
         System.out.println("Thank you");

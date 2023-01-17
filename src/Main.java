@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.time.InstantSource.system;
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -17,9 +19,13 @@ public class Main {
 
         try {
             System.out.println("Welcome");
-            System.out.println("1.Biology Quiz \n2.Geography Quiz \n3.Mixed Quiz");
-            System.out.print("Choose quiz: ");
-            int userQuiz = scanner.nextInt();
+            int userQuiz;
+            do {
+                System.out.println("1.Biology Quiz \n2.Geography Quiz \n3.Mixed Quiz");
+                System.out.print("Choose quiz: ");
+                userQuiz = scanner.nextInt();
+
+            } while (isNotNumberFromRange(userQuiz, 1 , 3));
             System.out.println();
             if (userQuiz == 1) {
                 biologyQuiz.runQuiz();
@@ -32,5 +38,8 @@ public class Main {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static boolean isNotNumberFromRange(int number, int min, int max) {
+        return number < min || number > max;
     }
 }
